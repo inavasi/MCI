@@ -41,4 +41,17 @@ public KLM(){
   panel.add(auswahl);
   
   this.button = new JButton("hier drücken um Co2 zu berechen");
+  button.addActionListener(this);
+  panel.add(button);
+  
+  this.co = new JLabel("Co2: ");
+  panel.add(co);
+  
+  //panel dem Fenster Hinzufügen
+  this.add(panel);
+  this.setVisible(true);
+ }
+ 
+  public static void main(String[] args){
+  }
   
