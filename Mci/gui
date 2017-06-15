@@ -1,0 +1,12 @@
+package irgendwas;
+import java.swing.JFormattedTextField;
+
+public class KLM extends JFrame implements ActionListener{
+JButton button;
+JFormattedTextField kilometer;
+JPanel panel;
+JLabel distanz;
+JLabel name;
+JLabel frage;
+JLabel co;
+
