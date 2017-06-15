@@ -10,3 +10,11 @@ JLabel name;
 JLabel frage;
 JLabel co;
 
+public KLM(){
+
+  this.setTitle("CO2-Emission");
+  this.setSize(400,200);
+  this.panel = new JPanel();
+  this.distanz = new JLabel("Distanz: ");
+  panel.add(distanz);
+  
