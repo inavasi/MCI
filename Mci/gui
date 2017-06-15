@@ -1,66 +1,85 @@
 
-package irgendwas;
-import java.swing.JFormattedTextField;
+package de.unistuttgart.dsass2017.ex05.aufgabec;
+import javax.swing.JFormattedTextField;
+import javax.swing.text.NumberFormatter;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.text.NumberFormat;
 
-public class KLM extends JFrame implements ActionListener{
-JButton button;
-JFormattedTextField kilometer;
-JPanel panel;
-JLabel distanz;
-JLabel name;
-JLabel frage;
-JLabel co;
+public class FensterBeispiel extends JFrame implements ActionListener{
+	JButton button;
+	//JFrame fenster;
+	JFormattedTextField kilometer;
+	JPanel panel;
+	//JTextField kilometer;
+	JLabel distanz;
+	JLabel name;
+	JLabel frage;
+	JLabel co;
+	
+	public FensterBeispiel(){
+			
+	        this.setTitle("CO2-Emission");
+	        this.setSize(250, 200);
+	        
+	        this.panel = new JPanel();
+	        
+	        this.distanz = new JLabel("Distanz: ");
+	        panel.add(distanz);
+	        NumberFormat format = NumberFormat.getInstance(); 
+	        format.setGroupingUsed(false);
+	        NumberFormatter formatter = new NumberFormatter(format);
+	        formatter.setAllowsInvalid(false);
+	       
+	        //this.kilometer = new JFormattedTextField("hier eintragen");	        
+	        this.kilometer = new JFormattedTextField(formatter);
+	       // this.kilometer.setValue(new Double(0));
+	        this.kilometer.setColumns(10);
+	        //this.kilometer.addPropertyChangeListener("wert");
+	        kilometer.setEnabled(true);
+	        kilometer.setSize(13, 13);
+	        panel.add(kilometer);
+	        this.name = new JLabel("km");	      
+	        panel.add(name);
+	        this.frage = new JLabel("Transportart: ");
+	        panel.add(frage);
+	       
+	        //button.addActionListener();
+	        // Array für unsere JComboBox
+	        String transportMittel[] = {"Motorrad", "Auto",
+	            "Bus", "Zug"};
 
-public KLM(){
-
-  this.setTitle("CO2-Emission");
-  this.setSize(400,200);
-  this.panel = new JPanel();
-  this.distanz = new JLabel("Distanz: ");
-  panel.add(distanz);
-  NumberFormat format = NumberFormat.getInstance();
-  format.setGroupingUsed(false);
-  NumberFormatter formatter = new NumberFormatter(format);
-  formatter.setAllowsInvalid(false);
-  
-  this.kilometer = new JFormattedTextField(formatter);
-  kilometer.setEnabled(true);
-  kilometer.setSize(13,13);
-  panel.add(kilometer);
-  
-  this.name = new JLabel("km");
-  panel.add(name);
-  
-  this.frage = new JLabel("Transportart: ");
-  panel.add(frage);
-  
-  //Array für Combobox
-  String transportmittel[] = {"Motorad","Auto","Bus", "Zug"};
-  //JCombobox erstellen
-  JComboBox auswahl = new JComboBox(transportmittel);
-  panel.add(auswahl);
-  
-  this.button = new JButton("hier drücken um Co2 zu berechen");
-  button.addActionListener(this);
-  panel.add(button);
-  
-  this.co = new JLabel("Co2: ");
-  panel.add(co);
-  
-  //panel dem Fenster Hinzufügen
-  this.add(panel);
-  this.setVisible(true);
- }
- 
-  public static void main(String[] args){
-    //ein neues Objekt wird erzeugt und sichtbar gemacht
-    KLM obj = new KLM();
-    listener.setVisible(true);
-  }
-  @Override
-  public void actionPerformed(ActionEvent a){
-     if(a.getSource() == this.button){;
-        int b = this.kilometer.getText()*124.5
-     }
+	        //JComboBox mit Bundesländer-Einträgen wird erstellt
+	        JComboBox auswahl = new JComboBox(transportMittel);
+	        
+	        //JComboBox wird Panel hinzugefügt
+	        panel.add(auswahl);
+	        this.button = new JButton("hier drücken um CO2 berechnen");	      
+	        button.addActionListener(this);
+	        panel.add(button);
+	        this.co = new JLabel( "CO2: ");
+	        panel.add(co);
+	        this.add(panel);
+	        this.setVisible(true);
+	       
+	}	  
+    public static void main(String[] args)
+    {
+        // Ein neues Objekt der Klasse BeispielListener wird erzeugt
+        // und sichtbar gemacht
+        FensterBeispiel listener = new FensterBeispiel();
+        listener.setVisible(true);
     }
-  }
+
+	@Override
+	public void actionPerformed(ActionEvent a) {
+		
+		if( a.getSource() == this.button){
+			int b = this.kilometer.getText()*124,5; 
+		}
+		
+	}
+
+
+}
