@@ -17,4 +17,14 @@ public KLM(){
   this.panel = new JPanel();
   this.distanz = new JLabel("Distanz: ");
   panel.add(distanz);
+  NumberFormat format = NumberFormat.getInstance();
+  format.setGroupingUsed(false);
+  NumberFormatter formatter = new NumberFormatter(format);
+  formatter.setAllowsInvalid(false);
   
+  this.kilometer = new JFormattedTextField(formatter);
+  kilometer.setEnabled(true);
+  kilometer.setSize(13,13);
+  panel.add(kilometer);
+  
+  this.name = new JLabel("km");
