@@ -53,10 +53,14 @@ public KLM(){
  }
  
   public static void main(String[] args){
-  //ein neues Objekt wird erzeugt und sichtbar gemacht
-  KLM obj = new KLM();
-  listener.setVisible(true);
+    //ein neues Objekt wird erzeugt und sichtbar gemacht
+    KLM obj = new KLM();
+    listener.setVisible(true);
   }
   @Override
   public void actionPerformed(ActionEvent a){
+     if(a.getSource() == this.button){;
+        int b = this.kilometer.getText()*124.5
+     }
+    }
   }
