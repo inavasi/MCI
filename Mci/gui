@@ -1,3 +1,4 @@
+
 package irgendwas;
 import java.swing.JFormattedTextField;
 
@@ -28,3 +29,16 @@ public KLM(){
   panel.add(kilometer);
   
   this.name = new JLabel("km");
+  panel.add(name);
+  
+  this.frage = new JLabel("Transportart: ");
+  panel.add(frage);
+  
+  //Array für Combobox
+  String transportmittel[] = {"Motorad","Auto","Bus", "Zug"};
+  //JCombobox erstellen
+  JComboBox auswahl = new JComboBox(transportmittel);
+  panel.add(auswahl);
+  
+  this.button = new JButton("hier drücken um Co2 zu berechen");
+  
